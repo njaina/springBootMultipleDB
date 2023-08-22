@@ -18,7 +18,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "\"user\"")
+@Table(name = "\"users\"")
 @EqualsAndHashCode
 @ToString
 public class User {
