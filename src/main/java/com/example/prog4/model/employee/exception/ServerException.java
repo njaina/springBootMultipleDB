@@ -1,4 +1,4 @@
-package com.example.prog4.model.exception;
+package com.example.prog4.model.employee.exception;
 
 import lombok.Getter;
 

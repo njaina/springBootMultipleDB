@@ -1,8 +1,8 @@
-package com.example.prog4.model;
+package com.example.prog4.model.employee;
 
 
-import com.example.prog4.model.enums.EmployeeSortField;
-import com.example.prog4.model.utilities.DateRange;
+import com.example.prog4.model.employee.enums.EmployeeSortField;
+import com.example.prog4.model.employee.utilities.DateRange;
 import com.example.prog4.repository.entity.enums.Sex;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

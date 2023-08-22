@@ -1,7 +1,7 @@
 package com.example.prog4.repository.dao;
 
-import com.example.prog4.model.exception.InternalServerErrorException;
-import com.example.prog4.model.utilities.DateRange;
+import com.example.prog4.model.employee.exception.InternalServerErrorException;
+import com.example.prog4.model.employee.utilities.DateRange;
 import com.example.prog4.repository.entity.Employee;
 import com.example.prog4.repository.entity.enums.Sex;
 import jakarta.persistence.EntityManager;

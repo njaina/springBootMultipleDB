@@ -1,6 +1,4 @@
-package com.example.prog4.model.enums;
-
-import lombok.Getter;
+package com.example.prog4.model.employee.enums;
 
 public enum EmployeeSortField {
     firstName,

@@ -1,7 +1,7 @@
 package com.example.prog4.controller;
 
-import com.example.prog4.model.exception.ForbiddenException;
-import com.example.prog4.model.exception.ServerException;
+import com.example.prog4.model.employee.exception.ForbiddenException;
+import com.example.prog4.model.employee.exception.ServerException;
 import com.example.prog4.service.AuthService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

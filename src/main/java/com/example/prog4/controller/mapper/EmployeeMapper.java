@@ -1,7 +1,7 @@
 package com.example.prog4.controller.mapper;
 
-import com.example.prog4.model.Employee;
-import com.example.prog4.model.exception.BadRequestException;
+import com.example.prog4.model.employee.Employee;
+import com.example.prog4.model.employee.exception.BadRequestException;
 import com.example.prog4.repository.PositionRepository;
 import com.example.prog4.repository.entity.Phone;
 import com.example.prog4.repository.entity.Position;
@@ -34,7 +34,7 @@ public class EmployeeMapper {
                 }
             });
 
-            List<Phone> phones = employee.getPhones().stream().map((com.example.prog4.model.Phone fromView) -> phoneMapper.toDomain(fromView, employee.getId())).toList();
+            List<Phone> phones = employee.getPhones().stream().map((com.example.prog4.model.employee.Phone fromView) -> phoneMapper.toDomain(fromView, employee.getId())).toList();
 
             com.example.prog4.repository.entity.Employee domainEmployee = com.example.prog4.repository.entity.Employee.builder()
                     .id(employee.getId())
