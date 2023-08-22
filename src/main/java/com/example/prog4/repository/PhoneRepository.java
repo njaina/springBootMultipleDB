@@ -1,6 +1,7 @@
 package com.example.prog4.repository;
 
 import com.example.prog4.repository.entity.Phone;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
+//@Qualifier("employeeEntityManagerFactory")
 public interface PhoneRepository extends JpaRepository<Phone, String> {
     @Query(value = "select * from \"phone\" p where p.value = :value", nativeQuery = true)
     Optional<Phone> findOneByValue(@Param("value") String value);

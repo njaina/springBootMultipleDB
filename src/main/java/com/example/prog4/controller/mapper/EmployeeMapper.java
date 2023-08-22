@@ -7,6 +7,7 @@ import com.example.prog4.repository.entity.Phone;
 import com.example.prog4.repository.entity.Position;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,6 +18,7 @@ import java.util.Optional;
 
 @Component
 @AllArgsConstructor
+@NoArgsConstructor
 @Transactional
 public class EmployeeMapper {
     private PositionRepository positionRepository;

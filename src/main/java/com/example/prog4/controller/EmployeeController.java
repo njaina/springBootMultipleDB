@@ -8,6 +8,7 @@ import com.example.prog4.service.CSVUtils;
 import com.example.prog4.service.EmployeeService;
 import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,6 +23,7 @@ import java.util.List;
 
 @Controller
 @AllArgsConstructor
+@NoArgsConstructor
 @RequestMapping("/server/employee")
 public class EmployeeController {
     private EmployeeMapper employeeMapper;
