@@ -1,4 +1,4 @@
-package com.example.prog4.model.employee.enums;
+package com.example.prog4.model.enums;
 
 public enum EmployeeSortField {
     firstName,
