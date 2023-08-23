@@ -1,7 +1,6 @@
-package com.example.prog4.repository;
+package com.example.prog4.repository.employee;
 
-import com.example.prog4.repository.entity.Session;
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.example.prog4.repository.entity.employee.Session;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

@@ -1,18 +1,18 @@
 package com.example.prog4.service;
 
-import com.example.prog4.repository.PositionRepository;
-import com.example.prog4.repository.entity.Position;
+import com.example.prog4.repository.employee.PositionRepository;
+import com.example.prog4.repository.entity.employee.Position;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @AllArgsConstructor
-@NoArgsConstructor
 
 public class PositionService {
+    @Qualifier("")
     private PositionRepository repository;
 
     public List<Position> getAll(){

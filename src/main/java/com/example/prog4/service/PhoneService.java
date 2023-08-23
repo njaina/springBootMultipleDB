@@ -1,10 +1,9 @@
 package com.example.prog4.service;
 
-import com.example.prog4.repository.PhoneRepository;
-import com.example.prog4.repository.entity.Phone;
+import com.example.prog4.repository.employee.PhoneRepository;
+import com.example.prog4.repository.entity.employee.Phone;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

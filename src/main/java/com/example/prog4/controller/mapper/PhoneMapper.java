@@ -1,8 +1,8 @@
 package com.example.prog4.controller.mapper;
 
 import com.example.prog4.model.employee.exception.BadRequestException;
-import com.example.prog4.repository.PhoneRepository;
-import com.example.prog4.repository.entity.Phone;
+import com.example.prog4.repository.employee.PhoneRepository;
+import com.example.prog4.repository.entity.employee.Phone;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;

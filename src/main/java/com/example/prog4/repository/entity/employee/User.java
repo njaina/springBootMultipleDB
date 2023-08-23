@@ -1,4 +1,4 @@
-package com.example.prog4.repository.entity;
+package com.example.prog4.repository.entity.employee;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,12 +18,13 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "\"position\"")
+@Table(name = "\"users\"")
 @EqualsAndHashCode
 @ToString
-public class Position {
+public class User {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private String id;
-    private String name;
+    private String username;
+    private String password;
 }
