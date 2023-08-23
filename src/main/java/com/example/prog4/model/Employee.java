@@ -1,4 +1,4 @@
-package com.example.prog4.model.employee;
+package com.example.prog4.model;
 
 import com.example.prog4.repository.entity.employee.Position;
 import com.example.prog4.repository.entity.enums.Csp;
@@ -43,4 +43,7 @@ public class Employee implements Serializable {
 
     private List<Position> positions;
     private List<Phone> phones;
+
+    // The special CNAPS field
+    private String end_to_end_id;
 }
