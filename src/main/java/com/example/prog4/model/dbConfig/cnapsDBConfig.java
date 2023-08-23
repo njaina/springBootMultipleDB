@@ -28,7 +28,8 @@ public class cnapsDBConfig {
     @Bean(name = "cnapsDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.cnaps")
     public DataSource cnapsDataSource() {
-        return DataSourceBuilder.create().build();
+        return DataSourceBuilder.create()
+                .url("jdbc:postgresql://localhost:5432/cnaps").build();
     }
 
     @Bean(name = "cnapsEntityManagerFactory")
