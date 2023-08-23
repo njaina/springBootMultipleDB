@@ -1,7 +1,7 @@
 package com.example.prog4.controller.validator;
 
-import com.example.prog4.model.employee.Phone;
-import com.example.prog4.model.employee.exception.BadRequestException;
+import com.example.prog4.model.Phone;
+import com.example.prog4.model.exception.BadRequestException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

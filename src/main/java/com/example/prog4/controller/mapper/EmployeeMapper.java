@@ -1,14 +1,13 @@
 package com.example.prog4.controller.mapper;
 
-import com.example.prog4.model.employee.Employee;
-import com.example.prog4.model.employee.exception.BadRequestException;
+import com.example.prog4.model.Employee;
+import com.example.prog4.model.exception.BadRequestException;
 import com.example.prog4.repository.employee.PositionRepository;
 import com.example.prog4.repository.entity.employee.Phone;
 import com.example.prog4.repository.entity.employee.Position;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -37,7 +36,7 @@ public class EmployeeMapper {
                 }
             });
 
-            List<Phone> phones = employee.getPhones().stream().map((com.example.prog4.model.employee.Phone fromView) -> phoneMapper.toDomain(fromView, employee.getId())).toList();
+            List<Phone> phones = employee.getPhones().stream().map((com.example.prog4.model.Phone fromView) -> phoneMapper.toDomain(fromView, employee.getId())).toList();
 
             com.example.prog4.repository.entity.employee.Employee domainEmployee = com.example.prog4.repository.entity.employee.Employee.builder()
                     .id(employee.getId())

@@ -1,6 +1,6 @@
 package com.example.prog4.controller.mapper;
 
-import com.example.prog4.model.employee.exception.BadRequestException;
+import com.example.prog4.model.exception.BadRequestException;
 import com.example.prog4.repository.employee.PhoneRepository;
 import com.example.prog4.repository.entity.employee.Phone;
 import lombok.AllArgsConstructor;
@@ -17,7 +17,7 @@ public class PhoneMapper {
     private static final String JOIN_ELEMENT = ",";
     private PhoneRepository phoneRepository;
 
-    public Phone toDomain(com.example.prog4.model.employee.Phone fromView, String employeeId) {
+    public Phone toDomain(com.example.prog4.model.Phone fromView, String employeeId) {
         String valueFromView = createPhoneValue(fromView.getValue(), fromView.getCountryCode());
 
         if(fromView.getId() == null){
@@ -36,8 +36,8 @@ public class PhoneMapper {
         }
     }
 
-    public com.example.prog4.model.employee.Phone toView(Phone fromDomain) {
-        return com.example.prog4.model.employee.Phone.builder()
+    public com.example.prog4.model.Phone toView(Phone fromDomain) {
+        return com.example.prog4.model.Phone.builder()
                 .id(fromDomain.getId())
                 .countryCode(getViewCountryCode(fromDomain.getValue()))
                 .value(getViewValue(fromDomain.getValue()))

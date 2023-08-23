@@ -1,6 +1,6 @@
 package com.example.prog4.service;
 
-import com.example.prog4.model.employee.exception.ForbiddenException;
+import com.example.prog4.model.exception.ForbiddenException;
 import com.example.prog4.repository.employee.SessionRepository;
 import com.example.prog4.repository.employee.UserRepository;
 import com.example.prog4.repository.entity.employee.Session;

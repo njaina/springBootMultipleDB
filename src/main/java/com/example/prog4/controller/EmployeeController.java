@@ -2,8 +2,8 @@ package com.example.prog4.controller;
 
 import com.example.prog4.controller.mapper.EmployeeMapper;
 import com.example.prog4.controller.validator.EmployeeValidator;
-import com.example.prog4.model.employee.Employee;
-import com.example.prog4.model.employee.EmployeeFilter;
+import com.example.prog4.model.Employee;
+import com.example.prog4.model.EmployeeFilter;
 import com.example.prog4.service.CSVUtils;
 import com.example.prog4.service.EmployeeService;
 import jakarta.servlet.http.HttpSession;
