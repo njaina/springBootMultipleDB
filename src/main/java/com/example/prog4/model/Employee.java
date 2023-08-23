@@ -1,8 +1,8 @@
 package com.example.prog4.model;
 
-import com.example.prog4.repository.entity.employee.Position;
-import com.example.prog4.repository.entity.enums.Csp;
-import com.example.prog4.repository.entity.enums.Sex;
+import com.example.prog4.employee.entity.Position;
+import com.example.prog4.employee.entity.enums.Csp;
+import com.example.prog4.employee.entity.enums.Sex;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
