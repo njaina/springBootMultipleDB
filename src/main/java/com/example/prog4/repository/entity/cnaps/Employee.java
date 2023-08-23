@@ -1,7 +1,7 @@
 package com.example.prog4.repository.entity.cnaps;
 
-import com.example.prog4.repository.entity.employee.Phone;
-import com.example.prog4.repository.entity.employee.Position;
+import com.example.prog4.repository.entity.cnaps.Phone;
+import com.example.prog4.repository.entity.cnaps.Position;
 import com.example.prog4.repository.entity.enums.Csp;
 import com.example.prog4.repository.entity.enums.Sex;
 import jakarta.persistence.*;

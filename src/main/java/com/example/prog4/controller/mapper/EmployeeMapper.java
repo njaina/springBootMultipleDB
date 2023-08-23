@@ -44,7 +44,7 @@ public class EmployeeMapper {
                     .lastName(employee.getLastName())
                     .address(employee.getAddress())
                     .cin(employee.getCin())
-                    .cnaps(employee.getCnaps())
+                    //.cnaps(employee.getCnaps())
                     .registrationNumber(employee.getRegistrationNumber())
                     .childrenNumber(employee.getChildrenNumber())
                     // enums
@@ -80,7 +80,7 @@ public class EmployeeMapper {
                 .lastName(employee.getLastName())
                 .address(employee.getAddress())
                 .cin(employee.getCin())
-                .cnaps(employee.getCnaps())
+                //.cnaps(employee.getCnaps())
                 .registrationNumber(employee.getRegistrationNumber())
                 .childrenNumber(employee.getChildrenNumber())
                 // enums

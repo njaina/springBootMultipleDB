@@ -1,6 +1,6 @@
 package com.example.prog4.repository.entity.cnaps;
 
-import com.example.prog4.repository.entity.employee.Employee;
+import com.example.prog4.repository.entity.cnaps.Employee;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
