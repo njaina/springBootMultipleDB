@@ -5,5 +5,5 @@ CREATE TABLE IF NOT EXISTS "session"
     session_id varchar not null,
     timeout    TIMESTAMP,
     user_id    varchar,
-    constraint session_user_fk foreign key (user_id) references "user" (id)
+    constraint session_user_fk foreign key (user_id) references "users" (id)
 );
