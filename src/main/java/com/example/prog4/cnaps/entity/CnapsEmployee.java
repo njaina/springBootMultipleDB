@@ -1,39 +1,33 @@
-package com.example.prog4.repository.entity;
+package com.example.prog4.cnaps.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-import java.time.LocalDateTime;
+import java.io.Serializable;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name = "\"session\"")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 @EqualsAndHashCode
-@ToString
-public class Session {
+@Table(name = "\"cnaps_employee\"")
+public class CnapsEmployee implements Serializable {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private String id;
-    @Column(name = "session_id")
-    private String sessionId;
-    private LocalDateTime timeout;
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+    @Column(name = "cnaps_number")
+    private String cnapsNumber;
+    @Column(name = "end_to_end_id", unique = true)
+    private String endToEndId;
 }

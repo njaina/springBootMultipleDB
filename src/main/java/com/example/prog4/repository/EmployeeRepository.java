@@ -1,9 +1,12 @@
 package com.example.prog4.repository;
 
+import com.example.prog4.model.EmployeeFilter;
 import com.example.prog4.repository.entity.Employee;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import java.util.List;
+import org.springframework.data.domain.Pageable;
 
-@Repository
-public interface EmployeeRepository extends JpaRepository<Employee, String> {
+public interface EmployeeRepository {
+    Employee findById(String id);
+    List<Employee> findByCriteria(EmployeeFilter filter, Pageable pageable);
+    Employee save(Employee employee);
 }
