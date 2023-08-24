@@ -7,6 +7,8 @@ import com.example.prog4.employee.entity.Session;
 import com.example.prog4.employee.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -14,8 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class AuthService {
     private UserRepository userRepository;
     private SessionRepository sessionRepository;
