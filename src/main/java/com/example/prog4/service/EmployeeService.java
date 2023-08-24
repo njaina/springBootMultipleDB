@@ -1,6 +1,7 @@
 package com.example.prog4.service;
 
 import com.example.prog4.model.EmployeeFilter;
+import com.example.prog4.repository.EmployeeRepositoryFacade;
 import com.example.prog4.repository.EmployeeRepositoryImpl;
 import com.example.prog4.repository.entity.Employee;
 import lombok.AllArgsConstructor;
@@ -14,7 +15,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class EmployeeService {
-    private final EmployeeRepositoryImpl employeeRepository;
+    private final EmployeeRepositoryFacade employeeRepository;
 
     public Employee getOne(String id) {
         return employeeRepository.findById(id);
