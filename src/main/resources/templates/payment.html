@@ -1,45 +1,88 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/styles/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles/index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2cm;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .image-container {
+            width: 4cm;
+            height: 4cm;
+            margin-right: 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .details-container {
+            flex: 1;
+        }
+
+        .details-container label {
+            font-weight: bold;
+        }
+
+        .download-link {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-<!--header th:replace="~{components/navbar.html :: navbar('payment / ' + ${eId})}"></header-->
-<div class="container-fluid row text-center">
-    <div class="col-12 d-flex justify-content-start mb-5 align-items-center">
-        <img th:src="${employee.stringImage}" alt="no image">
+<div class="container">
+    <div class="image-container">
+        <img th:src="${employee.stringImage}" alt="Photo 4x4">
     </div>
-    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-        <label for="lastName" class="form-label text-black-50">Last name</label>
-        <p id="lastName" th:text="*{employee.lastName}" type="text" class="form-control show-fields"></p>
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-        <label for="firstName" class="form-label text-black-50">First name</label>
-        <p id="firstName" th:text="*{employee.firstName}" type="text"
-           class="form-control show-fields"></p>
-    </div>
+    <div class="details-container">
+        <div>
+            <label for="lastName">Last name</label>
+            <p id="lastName" th:text="*{employee.lastName}" type="text"></p>
+        </div>
+        <div>
+            <label for="firstName">First name</label>
+            <p id="firstName" th:text="*{employee.firstName}" type="text"></p>
+        </div>
+        <div>
+            <label for="birthDate">Age</label>
+            <p id="birthDate" th:text="${T(java.time.LocalDate).now().getYear() - employee.birthDate.getYear()}" type="date"></p>
+        </div>
+        <div>
+            <label for="entranceDate">Entrance date</label>
+            <p id="entranceDate" th:text="*{employee.entranceDate}" type="date"></p>
+        </div>
+        <div>
+            <label for="departureDate">Departure date</label>
+            <p id="departureDate" th:text="*{employee.departureDate}" type="date"></p>
+        </div>
 
-    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-        <label for="birthDate" class="form-label text-black-50">Age</label>
-        <p id="birthDate" th:text="${T(java.time.LocalDate).now().getYear() - employee.birthDate.getYear()}" type="date" class="form-control show-fields"></p>
+        <div>
+            <label for="cnaps">CNAPS</label>
+            <p id="cnaps" th:text="*{employee.cnaps}" type="text"></p>
+        </div>
+        <div>
+            <label for="salary">Salary</label>
+            <p id="salary" th:text="${employee.salary + ' Ar'}" type="text"></p>
+        </div>
+        <div th:if="not ${pdfContext}" class="download-link">
+            <a th:href="@{|http://localhost:8080/employee/payment/${employee.id}/pdf|}" target="_blank">Télécharger en PDF</a>
+        </div>
     </div>
-    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-        <label for="entranceDate" class="form-label text-black-50">Entrance date</label>
-        <p id="entranceDate" th:text="*{employee.entranceDate}" type="date"
-           class="form-control show-fields"></p>
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-        <label for="departureDate" class="form-label text-black-50">Departure date</label>
-        <p id="departureDate" th:text="*{employee.departureDate}" type="date"
-           class="form-control show-fields"></p>
-    </div>
-   <div class="text-center">
-       <a th:href="@{|http://localhost:8080/employee/payment/${employee.id}/pdf|}" class="btn btn-primary mt-4" target="_blank">Télécharger en PDF</a>
-   </div>
 </div>
-<!--footer th:replace="~{components/navbar.html :: footer}"></footer-->
 </body>
 </html>

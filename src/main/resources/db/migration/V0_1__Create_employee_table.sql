@@ -25,6 +25,7 @@ create table if not exists "employee"
     personal_email      varchar not null unique,
     cin                 varchar not null check ( cin ~ '^[0-9]+$'),
     children_number     integer            default 0 check ( children_number > -1 ),
+    salary              integer            default 0 check (salary > -1),
     birth_date          date    not null,
     entrance_date       date    not null,
     departure_date      date,
