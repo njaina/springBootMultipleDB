@@ -10,7 +10,6 @@ import com.example.prog4.service.PDFService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -21,10 +20,11 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/employee")
 @AllArgsConstructor
-
 public class EmployeeViewController extends PopulateController {
     private EmployeeService employeeService;
     private EmployeeMapper employeeMapper;
+    @Autowired
+    private CompanyConf companyConf;
 
     @GetMapping("/list")
     public String getAll(
@@ -36,12 +36,14 @@ public class EmployeeViewController extends PopulateController {
                 .addAttribute("employeeFilters", filters)
                 .addAttribute("directions", Sort.Direction.values());
         session.setAttribute("employeeFiltersSession", filters);
+
         return "employees";
     }
 
     @GetMapping("/create")
     public String createEmployee(Model model) {
         model.addAttribute("employee", Employee.builder().build());
+
         return "employee_creation";
     }
 
@@ -49,6 +51,7 @@ public class EmployeeViewController extends PopulateController {
     public String editEmployee(@PathVariable String eId, Model model) {
         Employee toEdit = employeeMapper.toView(employeeService.getOne(eId));
         model.addAttribute("employee", toEdit);
+
 
         return "employee_edition";
     }
@@ -64,6 +67,7 @@ public class EmployeeViewController extends PopulateController {
     public String EmployeePayment(@PathVariable String eId, Model model) {
         Employee toShow = employeeMapper.toView(employeeService.getOne(eId));
         model.addAttribute("employee", toShow);
+        model.addAttribute("companyConf", companyConf);
 
         return "payment";
     }

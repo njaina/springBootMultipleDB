@@ -9,6 +9,7 @@ import java.util.List;
 
 @Data
 @ToString
+@Component
 public class CompanyConf {
     private final String name = "Numer";
     private final String description = "We are number";
