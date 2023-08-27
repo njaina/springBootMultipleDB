@@ -4,21 +4,23 @@ import com.example.prog4.controller.mapper.EmployeeMapper;
 import com.example.prog4.controller.validator.EmployeeValidator;
 import com.example.prog4.model.Employee;
 import com.example.prog4.model.EmployeeFilter;
+import com.example.prog4.repository.EmployeeRepository;
 import com.example.prog4.service.CSVUtils;
 import com.example.prog4.service.EmployeeService;
+import com.example.prog4.service.PDFService;
+import com.lowagie.text.DocumentException;
 import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -57,3 +59,4 @@ public class EmployeeController {
         return "redirect:/employee/list";
     }
 }
+

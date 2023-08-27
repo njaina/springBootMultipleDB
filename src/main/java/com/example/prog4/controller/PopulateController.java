@@ -8,9 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @Controller
 public class PopulateController {
 
-
     @ModelAttribute("companyConf")
-    private CompanyConf populateCompanyConf(){
+    public CompanyConf populateCompanyConf(){
         return new CompanyConf();
     }
 }

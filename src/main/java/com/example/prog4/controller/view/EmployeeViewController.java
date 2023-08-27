@@ -1,23 +1,27 @@
 package com.example.prog4.controller.view;
 
+import com.example.prog4.config.CompanyConf;
 import com.example.prog4.controller.PopulateController;
 import com.example.prog4.controller.mapper.EmployeeMapper;
 import com.example.prog4.model.Employee;
 import com.example.prog4.model.EmployeeFilter;
 import com.example.prog4.service.EmployeeService;
+import com.example.prog4.service.PDFService;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
 
 @Controller
 @RequestMapping("/employee")
 @AllArgsConstructor
+
 public class EmployeeViewController extends PopulateController {
     private EmployeeService employeeService;
     private EmployeeMapper employeeMapper;
@@ -32,7 +36,6 @@ public class EmployeeViewController extends PopulateController {
                 .addAttribute("employeeFilters", filters)
                 .addAttribute("directions", Sort.Direction.values());
         session.setAttribute("employeeFiltersSession", filters);
-
         return "employees";
     }
 
@@ -57,6 +60,21 @@ public class EmployeeViewController extends PopulateController {
 
         return "employee_show";
     }
+    @GetMapping("/payment/{eId}")
+    public String EmployeePayment(@PathVariable String eId, Model model) {
+        Employee toShow = employeeMapper.toView(employeeService.getOne(eId));
+        model.addAttribute("employee", toShow);
+
+        return "payment";
+    }
+
+    @GetMapping("/payment/{eId}/pdf")
+    public void generateEmployeePdf(@PathVariable String eId, HttpServletResponse response) throws Exception {
+        Employee employee = employeeMapper.toView(employeeService.getOne(eId));
+        pdfService.generatePdfForEmployee(employee, response);
+    }
+    private final PDFService pdfService;
+
 
     @GetMapping("/")
     public String home() {
