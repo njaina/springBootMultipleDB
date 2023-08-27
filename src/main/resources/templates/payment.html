@@ -4,6 +4,7 @@
     <meta charset="utf-8"></meta>
     <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
     <style>
+        /* Styles généraux de la page */
         @page {
             size: A4;
             margin: 0;
@@ -35,14 +36,56 @@
             flex: 1;
         }
 
-        .details-container label {
-            font-weight: bold;
-        }
-
         .download-link {
             margin-top: 20px;
         }
+
+        /* Styles spécifiques au footer */
+        footer {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+        .footer-left {
+            display: flex;
+            align-items: center;
+        }
+        .footer-center {
+            flex: 1;
+            text-align: center;
+        }
+        .footer-right {
+            flex: 1;
+            text-align: right;
+        }
+
+        .footer-image-container {
+            width: 4cm;
+            height: 4cm;
+            margin-right: 20px;
+        }
+
+        .footer-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .footer-details {
+            align-content: center;
+        }
+
+        .footer-details label {
+            font-weight: bold;
+        }
+        li{
+            list-style: none;
+        }
     </style>
+
 </head>
 <body>
 <div class="container">
@@ -85,4 +128,40 @@
     </div>
 </div>
 </body>
+<footer>
+<div>
+    <div class="footer-image-container">
+        <img th:src="${logo}" alt="Photo 4x4"></img>
+    </div>
+    <div class=" footer-details">
+        <div  class="">
+        <label for="comName">Company name</label>
+        <p id="comName" th:text="*{companyName}" type="text"></p>
+        <label for="address">Address</label>
+        <p id="address" th:text="*{address}" type="text"></p>
+        </div>
+
+        <div class="footer-center ">
+            <div>
+                <label for="phones">Phones</label>
+                <ul th:each="phone : ${phones}">
+                    <li id="phones" th:text="${phone.value}"></li>
+                </ul>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <p id="email" th:text="*{email}" type="text"></p>
+            </div>
+        </div>
+        <div  class="footer-right">
+            <label for="nif">NIF</label>
+            <p id="nif" th:text="*{NIF}" type="text"></p>
+            <div>
+            <label for="stat">STAT</label>
+            <p id="stat" th:text="*{STAT}" type="text"></p>
+            </div>
+        </div>
+    </div>
+</div>
+</footer>
 </html>

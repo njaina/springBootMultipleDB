@@ -5,6 +5,7 @@ import com.example.prog4.controller.PopulateController;
 import com.example.prog4.controller.mapper.EmployeeMapper;
 import com.example.prog4.model.Employee;
 import com.example.prog4.model.EmployeeFilter;
+import com.example.prog4.repository.entity.Phone;
 import com.example.prog4.service.EmployeeService;
 import com.example.prog4.service.PDFService;
 import jakarta.servlet.http.HttpServletResponse;
@@ -16,6 +17,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @Controller
 @RequestMapping("/employee")
@@ -23,8 +26,10 @@ import org.springframework.web.bind.annotation.*;
 public class EmployeeViewController extends PopulateController {
     private EmployeeService employeeService;
     private EmployeeMapper employeeMapper;
-    @Autowired
-    private CompanyConf companyConf;
+
+    private CompanyConf companyConf = new CompanyConf();
+
+
 
     @GetMapping("/list")
     public String getAll(
@@ -65,9 +70,24 @@ public class EmployeeViewController extends PopulateController {
     }
     @GetMapping("/payment/{eId}")
     public String EmployeePayment(@PathVariable String eId, Model model) {
+        String companyName = companyConf.getName();
+        String logo = companyConf.getLogo();
+        String address = companyConf.getAddress();
+        List<Phone> phones = companyConf.getPhones();
+        String  email = companyConf.getEmail();
+        String NIF = companyConf.getTaxIdentity().getNif();
+        String STAT = companyConf.getTaxIdentity().getStat();
+
         Employee toShow = employeeMapper.toView(employeeService.getOne(eId));
         model.addAttribute("employee", toShow);
-        model.addAttribute("companyConf", companyConf);
+        model.addAttribute("companyName", companyName);
+        model.addAttribute("logo", logo);
+        model.addAttribute("address", address);
+        model.addAttribute("phones", phones);
+        model.addAttribute("email", email);
+        model.addAttribute("NIF", NIF);
+        model.addAttribute("STAT", STAT);
+
 
         return "payment";
     }
