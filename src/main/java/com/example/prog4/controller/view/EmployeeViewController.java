@@ -6,6 +6,7 @@ import com.example.prog4.controller.mapper.EmployeeMapper;
 import com.example.prog4.model.Employee;
 import com.example.prog4.model.EmployeeFilter;
 import com.example.prog4.repository.entity.Phone;
+import com.example.prog4.repository.entity.enums.BirthdayCalculation;
 import com.example.prog4.service.EmployeeService;
 import com.example.prog4.service.PDFService;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,6 +18,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 
 
@@ -69,7 +72,8 @@ public class EmployeeViewController extends PopulateController {
         return "employee_show";
     }
     @GetMapping("/payment/{eId}")
-    public String EmployeePayment(@PathVariable String eId, Model model) {
+    public String EmployeePayment(@PathVariable String eId, Model model,@RequestParam String type) {
+
         String companyName = companyConf.getName();
         String logo = companyConf.getLogo();
         String address = companyConf.getAddress();
@@ -79,6 +83,15 @@ public class EmployeeViewController extends PopulateController {
         String STAT = companyConf.getTaxIdentity().getStat();
 
         Employee toShow = employeeMapper.toView(employeeService.getOne(eId));
+        Period age = Period.between(toShow.getBirthDate(), LocalDate.now());
+        if(type == "birthday"){
+            toShow.setAge(age.getYears());
+        }
+
+        if(type == "year_only"){
+            toShow.setAge(LocalDate.EPOCH.getYear()-toShow.getBirthDate().getYear());
+        }
+
         model.addAttribute("employee", toShow);
         model.addAttribute("companyName", companyName);
         model.addAttribute("logo", logo);

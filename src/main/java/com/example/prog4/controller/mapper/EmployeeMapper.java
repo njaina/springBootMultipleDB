@@ -53,6 +53,7 @@ public class EmployeeMapper {
                     .personalEmail(employee.getPersonalEmail())
                     // dates
                     .birthDate(employee.getBirthDate())
+                    .age(employee.getAge())
                     .departureDate(employee.getDepartureDate())
                     .entranceDate(employee.getEntranceDate())
                     // lists
@@ -93,6 +94,7 @@ public class EmployeeMapper {
                 .birthDate(employee.getBirthDate())
                 .departureDate(employee.getDepartureDate())
                 .entranceDate(employee.getEntranceDate())
+                .age(employee.getAge())
                 // lists
                 .phones(employee.getPhones().stream().map(phoneMapper::toView).toList())
                 .positions(employee.getPositions())

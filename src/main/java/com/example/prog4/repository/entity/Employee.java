@@ -1,5 +1,6 @@
 package com.example.prog4.repository.entity;
 
+import com.example.prog4.repository.entity.enums.BirthdayCalculation;
 import com.example.prog4.repository.entity.enums.Csp;
 import com.example.prog4.repository.entity.enums.Sex;
 import jakarta.persistence.Column;
@@ -85,4 +86,5 @@ public class Employee implements Serializable {
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
     private List<Phone> phones;
+    private Integer age;
 }

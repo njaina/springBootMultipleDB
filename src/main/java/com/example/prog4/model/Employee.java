@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
+import org.hibernate.id.IncrementGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -46,4 +47,5 @@ public class Employee implements Serializable {
 
     private List<Position> positions;
     private List<Phone> phones;
+    private Integer age;
 }
