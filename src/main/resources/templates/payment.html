@@ -102,8 +102,9 @@
             <p id="firstName" th:text="*{employee.firstName}" type="text"></p>
         </div>
         <div>
-            <label for="birthDate">Age</label>
-            <p id="birthDate" th:text="${T(java.time.LocalDate).now().getYear() - employee.birthDate.getYear()}" type="date"></p>
+            <label for="age">Age</label>
+            <!--p id="birthDate" th:text="${T(java.time.LocalDate).now().getYear() - employee.birthDate.getYear()}" type="date"></p-->
+            <p id="age" th:text="*{employee.age}"></p>
         </div>
         <div>
             <label for="entranceDate">Entrance date</label>
